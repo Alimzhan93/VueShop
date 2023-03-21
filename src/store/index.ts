@@ -6,9 +6,9 @@ export default createStore({
     mycartproductlist: [] as mycartproductlist[],
   },
   getters: {
-    countofcartproduct: (state) => {
-      return state.mycartproductlist.length;
-    },
+    // countofcartproduct: (state) => {
+    //   return state.mycartproductlist.length;
+    // },
     mycartList: (state) => {
       return state.mycartproductlist;
     },

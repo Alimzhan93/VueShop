@@ -1,28 +1,30 @@
 <template>
   <div class="header">
     <div class="top"></div>
-
     <router-link class="dials" to="/mycartlist"
       >Избраное{{ countofcartproduct }}</router-link
     >
     <router-link class="sklad" to="/">Склад</router-link> |
     <router-link class="sdelki" to="/sdelki">Сделки</router-link>
-    |
   </div>
+  <Post />
   <router-view />
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapGetters } from "vuex";
+import Post from "@/components/Post.vue";
+import router from "./router";
 export default defineComponent({
   computed: {
     ...mapGetters(["countofcartproduct"]),
   },
-  components: {},
+  components: { Post, router },
 });
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Montserrat:wght@700&family=Rubik:wght@400;500&display=swap");
 .header {
   width: 1200px;
   height: 110px;
@@ -52,7 +54,7 @@ export default defineComponent({
   align-items: center;
   padding: 6px 0px 7px;
   gap: 4px;
-
+  text-decoration: none;
   position: absolute;
   width: 86px;
   height: 50px;
@@ -68,7 +70,7 @@ export default defineComponent({
   align-items: center;
   padding: 6px 0px 7px;
   gap: 4px;
-
+  text-decoration: none;
   position: absolute;
   width: 86px;
   height: 50px;
@@ -88,7 +90,7 @@ fill
   align-items: center;
   padding: 6px 0px 7px;
   gap: 4px;
-
+  text-decoration: none;
   position: absolute;
   width: 86px;
   height: 50px;

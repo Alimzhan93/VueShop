@@ -8,7 +8,9 @@ import ProductsItem from "@/components/ProductsItem.vue";
 export default defineComponent({
   name: "Products",
   data() {
-    return {};
+    return {
+      products: {},
+    };
   },
   methods: {},
   components: { ProductsItem },

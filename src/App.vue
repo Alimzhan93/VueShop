@@ -4,7 +4,6 @@
     <router-link class="sklad" to="/"
       ><img src="@/assets/sklad.png" alt="" /> Склад</router-link
     >
-    |
     <router-link class="sdelki" to="/sdelki"
       ><img src="@/assets/sdelki.png" alt="" />Сделки</router-link
     >

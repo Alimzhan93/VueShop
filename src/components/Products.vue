@@ -32,11 +32,11 @@
       </div>
 
       <div class="btn_block">
-        <button class="btn btn-primary" v-on:click="addTocart(item)">
+        <button class="btn btn-primary" v-on:click="addToSdelki()">
           Добавить в сделки
         </button>
-        <button class="btn_like">
-          <img src="@/assets/like.png" alt="" />
+        <button class="btn_like" v-on:click="addTocart()">
+          <img src="@/assets/like.png" alt="like" />
         </button>
       </div>
     </div>
@@ -55,8 +55,12 @@ export default defineComponent({
   },
   methods: {
     ...mapMutations(["ADD_TO_CART"]),
-    addTocart(item) {
-      this.ADD_TO_CART(item);
+    addTocart() {
+      this.ADD_TO_CART();
+    },
+    ...mapMutations(["ADD_TO_SDELKI"]),
+    addToSdelki() {
+      this.ADD_TO_SDELKI();
     },
   },
 });

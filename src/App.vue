@@ -1,11 +1,11 @@
 <template>
   <div class="header">
     <div class="top"></div>
+    <router-link class="sklad" to="/">Склад</router-link> |
+    <router-link class="sdelki" to="/sdelki">Сделки</router-link>
     <router-link class="dials" to="/mycartlist"
       >Избраное{{ countofcartproduct }}</router-link
     >
-    <router-link class="sklad" to="/">Склад</router-link> |
-    <router-link class="sdelki" to="/sdelki">Сделки</router-link>
   </div>
   <Post />
   <router-view />
@@ -14,7 +14,7 @@
 import { defineComponent } from "vue";
 import { mapGetters } from "vuex";
 import Post from "@/components/Post.vue";
-import router from "./router";
+import router from "@/router";
 export default defineComponent({
   computed: {
     ...mapGetters(["countofcartproduct"]),

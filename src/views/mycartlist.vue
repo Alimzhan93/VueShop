@@ -32,11 +32,11 @@
       </div>
 
       <div class="btn_block">
-        <button class="btn btn-primary" v-on:click="deletefromcart(item)">
-          удалить из избраного
+        <button class="btn btn-primary" v-on:click="addToSdelki()">
+          Добавить в сделки
         </button>
-        <button class="btn_like">
-          <img src="@/assets/like.png" alt="" />
+        <button class="btn_like_i" v-on:click="deletefromcart()">
+          <img src="@/assets/favourite.png" alt="" />
         </button>
       </div>
     </div>
@@ -49,8 +49,12 @@ import { mapGetters } from "vuex";
 export default defineComponent({
   methods: {
     ...mapMutations(["DELETE_FROM_CART"]),
-    deletefromcart(item) {
-      this.DELETE_FROM_CART(item);
+    deletefromcart() {
+      this.DELETE_FROM_CART();
+    },
+    ...mapMutations(["ADD_TO_SDELKI"]),
+    addToSdelki() {
+      this.ADD_TO_SDELKI();
     },
   },
   computed: {
@@ -84,7 +88,7 @@ export default defineComponent({
   align-self: stretch;
   flex-grow: 0;
 }
-.btn_like {
+.btn_like_i {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -97,7 +101,7 @@ export default defineComponent({
 
   /* white-gray */
 
-  background: #f4f5f9;
+  background: #2d3b87;
   border-radius: 10px;
 
   /* Inside auto layout */

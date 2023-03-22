@@ -30,6 +30,7 @@ export default defineComponent({
 <style scoped>
 a {
   text-decoration: none;
+  color: #2d3b87;
 }
 .post {
   display: flex;
@@ -90,7 +91,7 @@ a {
   padding: 0px;
   gap: 18px;
 
-  width: 280px;
+  width: 300px;
   height: 15px;
 
   /* Inside auto layout */

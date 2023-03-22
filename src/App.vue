@@ -1,11 +1,16 @@
 <template>
   <div class="header">
     <div class="top"></div>
-    <router-link class="sklad" to="/">Склад</router-link> |
-    <router-link class="sdelki" to="/sdelki">Сделки</router-link>
-    <router-link class="dials" to="/mycartlist"
-      >Избраное{{ countofcartproduct }}</router-link
+    <router-link class="sklad" to="/"
+      ><img src="@/assets/sklad.png" alt="" /> Склад</router-link
     >
+    |
+    <router-link class="sdelki" to="/sdelki"
+      ><img src="@/assets/sdelki.png" alt="" />Сделки</router-link
+    >
+    <router-link class="dials" to="/mycartlist"
+      ><img src="@/assets/vector.png" alt="" />Избраное{{ countofcartproduct }}
+    </router-link>
   </div>
   <Post />
   <router-view />
@@ -27,11 +32,10 @@ export default defineComponent({
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Montserrat:wght@700&family=Rubik:wght@400;500&display=swap");
 .header {
   width: 1200px;
-  height: 110px;
+  height: 160px;
   margin: 0 auto;
   left: 360px;
   top: 0px;
-
   /* white */
 
   background: #ffffff;
@@ -41,7 +45,6 @@ export default defineComponent({
   height: 40px;
   left: calc(50% - 1200px / 2);
   top: 0px;
-
   /* platinum */
 
   background: #e0e3ee;
@@ -59,8 +62,8 @@ export default defineComponent({
   width: 86px;
   height: 50px;
   left: calc(50% - 86px / 2 + 385px);
-  top: 60px;
-
+  top: 62px;
+  color: #2d3b87;
   border-radius: 10px;
 }
 .sklad {
@@ -76,7 +79,7 @@ export default defineComponent({
   height: 50px;
   left: calc(50% - 86px / 2 + 471px);
   top: 60px;
-
+  color: #2d3b87;
   /* White Gray
 
 fill
@@ -96,7 +99,7 @@ fill
   height: 50px;
   left: calc(50% - 86px / 2 + 557px);
   top: 60px;
-
+  color: #2d3b87;
   border-radius: 10px;
 }
 </style>

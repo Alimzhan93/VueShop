@@ -1,81 +1,43 @@
 <template>
-  <!-- Акционы -->
-  <!-- <div class="stock" v-for="(item, index) in productList" v-bind:key="index">
-    {{ item }}
-    <div class="DataImage">
-      <img src="@/assets/image.png" alt="" />
-      <div class="data">
-        <p style="color: #969dc3">Акционы</p>
-        <div class="brus">Пиломатериалы брус доска</div>
-        <div class="geo">
-          <img src="@/assets/Geo.png" alt="" />
+  <div class="hellol">
+    <div class="sdelkiitem">
+      {{ sdelkiitem_data.article }}
+      <div class="stock">
+        <div class="DataImage">
+          <img src="@/assets/image.png" alt="" />
+          <div class="data">
+            <p style="color: #969dc3">Разовое предложение</p>
+            <div class="brus">Пиломатериалы брус доска</div>
+            <div class="geo">
+              <img src="@/assets/Geo.png" alt="" />
+            </div>
+            <div class="text">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
+                fugiat aperiam nesciunt corrupti eius tempora blanditiis
+                reiciendis, quod consectetur officia ullam laborum sapiente?
+                Eveniet, harum assumenda expedita iure ipsa reprehenderit.
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="text">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio fugiat
-            aperiam nesciunt corrupti eius tempora blanditiis reiciendis, quod
-            consectetur officia ullam laborum sapiente? Eveniet, harum assumenda
-            expedita iure ipsa reprehenderit.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="sello">
-      <div class="price">
-        <h2>33 000 ₽</h2>
-        <p>
-          Количество <br />
-          Стоимость за штуку
-        </p>
-      </div>
+        <div class="sello">
+          <div class="price">
+            {{ sdelkiitem_data.name }}
+            <h2>33 000 ₽{{ sdelkiitem_data.price }}</h2>
+            <p>
+              Количество <br />
+              Стоимость за штуку
+            </p>
+          </div>
 
-      <div class="btn_block">
-        <button class="btn btn-primary" v-on:click="addToSdelki()">
-          Добавить в сделки
-        </button>
-        <button class="btn_like" v-on:click="addTocart()">
-          <img src="@/assets/like.png" alt="like" />
-        </button>
-      </div>
-    </div>
-  </div> -->
-  <!-- Разовое предложение -->
-  <div class="stock">
-    {{ product_data.article }}
-    <div class="DataImage">
-      <img src="@/assets/image.png" alt="" />
-      <div class="data">
-        <p style="color: #969dc3">Разовое предложение{{ product_data.name }}</p>
-        <div class="brus">Пиломатериалы брус доска</div>
-        <div class="geo">
-          <img src="@/assets/Geo.png" alt="" />
+          <div class="btn_block">
+            <button class="btn btn_primary_item" @click="">Оплатить</button>
+            <button class="btn_like" @click="">
+              <img src="@/assets/like.png" alt="like" />
+            </button>
+          </div>
         </div>
-        <div class="text">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio fugiat
-            aperiam nesciunt corrupti eius tempora blanditiis reiciendis, quod
-            consectetur officia ullam laborum sapiente? Eveniet, harum assumenda
-            expedita iure ipsa reprehenderit.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="sello">
-      <div class="price">
-        <h2>33 000 ₽{{ product_data.price }}</h2>
-        <p>
-          Количество <br />
-          Стоимость за штуку
-        </p>
-      </div>
-
-      <div class="btn_block">
-        <button class="btn btn-primary" @click="addToSdelki">
-          Добавить в сделки
-        </button>
-        <button class="btn_like" @click="addToMycartlist">
-          <img src="@/assets/like.png" alt="like" />
-        </button>
       </div>
     </div>
   </div>
@@ -83,32 +45,34 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+
 export default defineComponent({
-  emits: ["addToSdelki", "addToMycartlist"],
-  name: "ProductsItem",
+  name: "sdelkiitem",
   props: {
-    product_data: {
+    sdelkiitem_data: {
       type: Object,
       default() {
         return {};
       },
     },
   },
-  data() {
+  setup() {
     return {};
-  },
-  methods: {
-    addToSdelki() {
-      this.$emit("addToSdelki", this.product_data);
-    },
-    addToMycartlist() {
-      this.$emit("addToMycartlist", this.product_data);
-    },
   },
 });
 </script>
-
 <style>
+.hellol {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  margin: 0 auto;
+  width: 1166px;
+  height: 390px;
+  left: 361px;
+  top: 275px;
+}
 .btn_block {
   display: flex;
   flex-direction: row;
@@ -148,7 +112,7 @@ export default defineComponent({
   order: 0;
   flex-grow: 0;
 }
-.btn-primary {
+.btn_primary_item {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -161,7 +125,7 @@ export default defineComponent({
 
   /* white-gray */
 
-  background: #f4f5f9;
+  background: #69c57f;
   border-radius: 10px;
 
   /* Inside auto layout */

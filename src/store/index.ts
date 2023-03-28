@@ -1,39 +1,44 @@
 import { createStore } from "vuex";
-import { mycartproductlist } from "@/store/storeType";
-import { mysdelkiproductlist } from "@/store/storeO";
+import axios from "axios";
 
 export default createStore({
   state: {
-    mycartproductlist: [] as mycartproductlist[],
-    mysdelkiproductlist: [] as mysdelkiproductlist[],
+    products: [],
+    sdelki: [],
   },
   getters: {
-    // countofcartproduct: (state) => {
-    //   return state.mycartproductlist.length;
-    // },
-    mycartList: (state) => {
-      return state.mycartproductlist;
+    PRODUCTS(state) {
+      return state.products;
     },
-    sdelki: (state) => {
-      return state.mysdelkiproductlist;
+    SDELKI(state) {
+      return state.sdelki;
     },
   },
   mutations: {
-    ADD_TO_CART: (state, product) => {
-      // state.mycartproductlist = product;
-      state.mycartproductlist.push(product);
+    SET_PRODUCTS_TO_STATE: (state, products) => {
+      state.products = products;
     },
-    DELETE_FROM_CART: (state, product) => {
-      state.mycartproductlist.splice(product, 1);
-    },
-    ADD_TO_SDELKI: (state, product) => {
-      // state.mycartproductlist = product;
-      state.mysdelkiproductlist.push(product);
-    },
-    DELETE_FROM_SDELKI: (state, product) => {
-      state.mysdelkiproductlist.splice(product, 1);
+    SET_SDELKI: (state, product) => {
+      state.sdelki.push(product);
     },
   },
-  actions: {},
+  actions: {
+    GET_PRODUCTS_FROM_API({ commit }) {
+      return axios("http://localhost:3000/products", {
+        method: "GET",
+      })
+        .then((products) => {
+          commit("SET_PRODUCTS_TO_STATE", products.data);
+          return products;
+        })
+        .catch((error) => {
+          console.log(error);
+          return error;
+        });
+    },
+    ADD_TO_SDELKI({ commit }, product) {
+      commit("SET_SDELKI", product);
+    },
+  },
   modules: {},
 });

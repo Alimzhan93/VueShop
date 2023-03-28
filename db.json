@@ -1,0 +1,56 @@
+{
+  "products": [
+    {
+      "image": "image.png",
+      "name": "T-shirt 1",
+      "price": 33000,
+      "article": "T1",
+      "available": true
+    },
+    {
+      "image": "image.png",
+      "name": "T-shirt 2",
+      "price": 33000,
+      "article": "T2",
+      "available": true
+    },
+    {
+      "image": "image.png",
+      "name": "T-shirt 3",
+      "price": 33000,
+      "article": "T3",
+      "available": false
+    },
+    {
+      "image": "image.png",
+      "name": "T-shirt 4",
+      "price": 33000,
+      "article": "T4",
+      "available": true
+    },
+    {
+      "image": "image.png",
+      "name": "T-shirt 5",
+      "price": 33000,
+      "article": "T5",
+      "available": false
+    },
+    {
+      "image": "image.png",
+      "name": "T-shirt 6",
+      "price": 33000,
+      "article": "T6",
+      "available": true
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

@@ -2,7 +2,7 @@
   <div class="favorites">
     <h1>Избраное</h1>
   </div>
-  <div class="stock" v-for="(item, index) in mycartList" v-bind:key="index">
+  <!-- <div class="stock" v-for="(item, index) in mycartList" v-bind:key="index">
     {{ item }}
     <div class="DataImage">
       <img src="@/assets/image.png" alt="" />
@@ -40,7 +40,7 @@
         </button>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";

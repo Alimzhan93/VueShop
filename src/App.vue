@@ -4,25 +4,23 @@
     <router-link class="sklad" to="/"
       ><img src="@/assets/sklad.png" alt="" /> Склад</router-link
     >
-    <router-link class="sdelki" to="/sdelki"
+    <router-link class="sdelki" to="/sdelki/"
       ><img src="@/assets/sdelki.png" alt="" />Сделки</router-link
     >
     <router-link class="dials" to="/mycartlist"
-      ><img src="@/assets/vector.png" alt="" />Избраное{{ countofcartproduct }}
+      ><img src="@/assets/vector.png" alt="" />Избраное
     </router-link>
   </div>
   <Post />
-  <router-view />
+  <router-view :sdelki_data="SDELKI" />
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import { mapGetters } from "vuex";
 import Post from "@/components/Post.vue";
 import router from "@/router";
+import { mapGetters } from "vuex";
 export default defineComponent({
-  computed: {
-    ...mapGetters(["countofcartproduct"]),
-  },
+  computed: { ...mapGetters(["SDELKI"]) },
   components: { Post, router },
 });
 </script>

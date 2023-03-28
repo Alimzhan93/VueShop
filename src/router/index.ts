@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import HomeView from "../views/HomeView.vue";
+// import homesdelki from "../views/homesdelki.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -19,6 +20,8 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/sdelki",
     name: "sdelki",
+    // component: homesdelki,
+    // component: homesdelki,
     // route level code-splitting
     // this generates a separate chunk (sdelki.[hash].js) for this route
     // which is lazy-loaded when the route is visited.

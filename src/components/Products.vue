@@ -7,6 +7,7 @@
     :key="product.article"
     v-bind:product_data="product"
     @addToSdelki="addToSdelki"
+    @addToMycartlist="addToMycartlist"
   ></ProductsItem>
 </template>
 
@@ -20,6 +21,12 @@ export default defineComponent({
   components: { ProductsItem },
   props: {
     sdelki_data: {
+      type: Array,
+      default() {
+        return [];
+      },
+    },
+    mycartlist_data: {
       type: Array,
       default() {
         return [];
@@ -75,9 +82,16 @@ export default defineComponent({
     };
   },
   methods: {
-    ...mapActions(["GET_PRODUCTS_FROM_API", "ADD_TO_SDELKI"]),
+    ...mapActions([
+      "GET_PRODUCTS_FROM_API",
+      "ADD_TO_SDELKI",
+      "ADD_TO_MYCARTLIST",
+    ]),
     addToSdelki(data: any) {
       this.ADD_TO_SDELKI(data);
+    },
+    addToMycartlist(data: any) {
+      this.ADD_TO_MYCARTLIST(data);
     },
   },
   mounted() {

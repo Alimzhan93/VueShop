@@ -5,6 +5,7 @@ export default createStore({
   state: {
     products: [],
     sdelki: [],
+    mycartlist: [],
   },
   getters: {
     PRODUCTS(state) {
@@ -13,6 +14,9 @@ export default createStore({
     SDELKI(state) {
       return state.sdelki;
     },
+    MYCARTLIST(state) {
+      return state.mycartlist;
+    },
   },
   mutations: {
     SET_PRODUCTS_TO_STATE: (state, products) => {
@@ -20,6 +24,9 @@ export default createStore({
     },
     SET_SDELKI: (state, product) => {
       state.sdelki.push(product);
+    },
+    SET_MYCARTLIST: (state, product) => {
+      state.mycartlist.push(product);
     },
   },
   actions: {
@@ -38,6 +45,9 @@ export default createStore({
     },
     ADD_TO_SDELKI({ commit }, product) {
       commit("SET_SDELKI", product);
+    },
+    ADD_TO_MYCARTLIST({ commit }, product) {
+      commit("SET_MYCARTLIST", product);
     },
   },
   modules: {},

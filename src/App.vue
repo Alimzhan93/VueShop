@@ -12,7 +12,7 @@
     </router-link>
   </div>
   <Post />
-  <router-view :sdelki_data="SDELKI" />
+  <router-view :sdelki_data="SDELKI" :mycartlist_data="MYCARTLIST" />
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
@@ -20,7 +20,7 @@ import Post from "@/components/Post.vue";
 import router from "@/router";
 import { mapGetters } from "vuex";
 export default defineComponent({
-  computed: { ...mapGetters(["SDELKI"]) },
+  computed: { ...mapGetters(["SDELKI", "MYCARTLIST"]) },
   components: { Post, router },
 });
 </script>

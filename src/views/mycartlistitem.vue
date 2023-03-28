@@ -1,39 +1,64 @@
 <template>
-  <div class="favorites">
-    <h1>Избраное</h1>
+  <div class="stock">
+    <div class="DataImage">
+      {{ mycartlititem_data.article }}
+      <img src="@/assets/image.png" alt="" />
+      <div class="data">
+        <p style="color: #969dc3">Акционы</p>
+        <div class="brus">Пиломатериалы брус доска</div>
+        <div class="geo">
+          <img src="@/assets/Geo.png" alt="" />
+        </div>
+        <div class="text">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio fugiat
+            aperiam nesciunt corrupti eius tempora blanditiis reiciendis, quod
+            consectetur officia ullam laborum sapiente? Eveniet, harum assumenda
+            expedita iure ipsa reprehenderit.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="sello">
+      <div class="price">
+        {{ mycartlititem_data.name }}
+        <h2>33 000 ₽{{ mycartlititem_data.price }}</h2>
+        <p>
+          Количество <br />
+          Стоимость за штуку
+        </p>
+      </div>
+
+      <div class="btn_block">
+        <button class="btn btn-primary" v-on:click="">Добавить в сделки</button>
+        <button class="btn_like_i" v-on:click="">
+          <img src="@/assets/favourite.png" alt="" />
+        </button>
+      </div>
+    </div>
   </div>
-  <mycartlistitem
-    v-for="item in mycartlist_data"
-    :key="item.article"
-    :mycartlititem_data="item"
-  />
 </template>
+
 <script lang="ts">
 import { defineComponent } from "vue";
-import mycartlistitem from "@/views/mycartlistitem.vue";
+
 export default defineComponent({
-  components: { mycartlistitem },
-  name: "mycartlist",
+  name: "mycartlititem",
   props: {
-    mycartlist_data: {
-      type: Array,
+    mycartlititem_data: {
+      type: Object,
       default() {
-        return [];
+        return {};
       },
     },
   },
-  methods: {},
-  computed: {},
+  setup() {
+    return {};
+  },
 });
 </script>
+
 <style>
-.favorites {
-  width: 1200px;
-  height: 75px;
-  margin: 0 auto;
-  left: 360px;
-  top: 0px;
-}
 .btn_block {
   display: flex;
   flex-direction: row;

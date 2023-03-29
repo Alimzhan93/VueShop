@@ -79,6 +79,9 @@ a {
   left: 344px;
   top: 187px;
 }
+.HorizontalMenu :hover {
+  background-color: #f4f5f9;
+}
 .item {
   cursor: pointer;
   display: flex;

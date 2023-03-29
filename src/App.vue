@@ -51,6 +51,9 @@ export default defineComponent({
   background: #e0e3ee;
   border-radius: 0px 0px 10px 10px;
 }
+.header :hover {
+  background-color: #f4f5f9;
+}
 .dials {
   display: flex;
   flex-direction: column;

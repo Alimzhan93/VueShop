@@ -110,7 +110,7 @@ export default defineComponent({
   align-items: center;
   padding: 15px;
   gap: 8px;
-
+  cursor: pointer;
   width: 50px;
   height: 50px;
 
@@ -132,7 +132,7 @@ export default defineComponent({
   align-items: center;
   padding: 17.5px 25px;
   gap: 8px;
-
+  cursor: pointer;
   width: 212px;
   height: 50px;
 

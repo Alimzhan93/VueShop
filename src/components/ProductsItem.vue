@@ -91,7 +91,7 @@ export default defineComponent({
   align-items: center;
   padding: 15px;
   gap: 8px;
-
+  cursor: pointer;
   width: 50px;
   height: 50px;
 
@@ -107,6 +107,7 @@ export default defineComponent({
   flex-grow: 0;
 }
 .btn-primary {
+  cursor: pointer;
   display: flex;
   flex-direction: row;
   justify-content: center;

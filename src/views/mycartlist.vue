@@ -11,15 +11,16 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import mycartlistitem from "@/views/mycartlistitem.vue";
+interface mycartlist_data {
+  article: string;
+}
 export default defineComponent({
   components: { mycartlistitem },
   name: "mycartlist",
   props: {
     mycartlist_data: {
-      type: Array,
-      default() {
-        return [];
-      },
+      type: Array as () => Array<mycartlist_data>,
+      required: true,
     },
   },
   methods: {},

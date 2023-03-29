@@ -1,11 +1,15 @@
 import { createStore } from "vuex";
 import axios from "axios";
-
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+}
 export default createStore({
   state: {
     products: [],
-    sdelki: [],
-    mycartlist: [],
+    sdelki: [] as Product[],
+    mycartlist: [] as Product[],
   },
   getters: {
     PRODUCTS(state) {
@@ -22,10 +26,10 @@ export default createStore({
     SET_PRODUCTS_TO_STATE: (state, products) => {
       state.products = products;
     },
-    SET_SDELKI: (state, product) => {
+    SET_SDELKI: (state, product: Product) => {
       state.sdelki.push(product);
     },
-    SET_MYCARTLIST: (state, product) => {
+    SET_MYCARTLIST: (state, product: Product) => {
       state.mycartlist.push(product);
     },
   },

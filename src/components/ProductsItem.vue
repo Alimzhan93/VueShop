@@ -89,19 +89,17 @@ export default defineComponent({
   props: {
     product_data: {
       type: Object,
-      default() {
-        return {};
-      },
+      required: true,
     },
   },
   data() {
     return {};
   },
   methods: {
-    addToSdelki() {
+    addToSdelki(): void {
       this.$emit("addToSdelki", this.product_data);
     },
-    addToMycartlist() {
+    addToMycartlist(): void {
       this.$emit("addToMycartlist", this.product_data);
     },
   },

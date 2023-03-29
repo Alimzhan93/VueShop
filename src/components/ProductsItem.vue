@@ -1,52 +1,12 @@
 <template>
-  <!-- Акционы -->
-  <!-- <div class="stock" v-for="(item, index) in productList" v-bind:key="index">
-    {{ item }}
-    <div class="DataImage">
-      <img src="@/assets/image.png" alt="" />
-      <div class="data">
-        <p style="color: #969dc3">Акционы</p>
-        <div class="brus">Пиломатериалы брус доска</div>
-        <div class="geo">
-          <img src="@/assets/Geo.png" alt="" />
-        </div>
-        <div class="text">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio fugiat
-            aperiam nesciunt corrupti eius tempora blanditiis reiciendis, quod
-            consectetur officia ullam laborum sapiente? Eveniet, harum assumenda
-            expedita iure ipsa reprehenderit.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="sello">
-      <div class="price">
-        <h2>33 000 ₽</h2>
-        <p>
-          Количество <br />
-          Стоимость за штуку
-        </p>
-      </div>
-
-      <div class="btn_block">
-        <button class="btn btn-primary" v-on:click="addToSdelki()">
-          Добавить в сделки
-        </button>
-        <button class="btn_like" v-on:click="addTocart()">
-          <img src="@/assets/like.png" alt="like" />
-        </button>
-      </div>
-    </div>
-  </div> -->
-  <!-- Разовое предложение -->
   <div class="stock">
-    {{ product_data.article }}
     <div class="DataImage">
       <img src="@/assets/image.png" alt="" />
       <div class="data">
-        <p style="color: #969dc3">Разовое предложение{{ product_data.name }}</p>
-        <div class="brus">Пиломатериалы брус доска</div>
+        <p style="color: #969dc3">{{ product_data.name }}</p>
+        <div class="brus">
+          {{ product_data.article }}
+        </div>
         <div class="geo">
           <img src="@/assets/Geo.png" alt="" />
         </div>
@@ -62,7 +22,7 @@
     </div>
     <div class="sello">
       <div class="price">
-        <h2>33 000 ₽{{ product_data.price }}</h2>
+        <h2>{{ product_data.price }} ₽</h2>
         <p>
           Количество <br />
           Стоимость за штуку

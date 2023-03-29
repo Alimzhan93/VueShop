@@ -1,13 +1,12 @@
 <template>
   <div class="hellol">
     <div class="sdelkiitem">
-      {{ sdelkiitem_data.article }}
       <div class="stock">
         <div class="DataImage">
           <img src="@/assets/image.png" alt="" />
           <div class="data">
-            <p style="color: #969dc3">Разовое предложение</p>
-            <div class="brus">Пиломатериалы брус доска</div>
+            <p style="color: #969dc3">{{ sdelkiitem_data.name }}</p>
+            <div class="brus">{{ sdelkiitem_data.article }}</div>
             <div class="geo">
               <img src="@/assets/Geo.png" alt="" />
             </div>
@@ -23,8 +22,7 @@
         </div>
         <div class="sello">
           <div class="price">
-            {{ sdelkiitem_data.name }}
-            <h2>33 000 ₽{{ sdelkiitem_data.price }}</h2>
+            <h2>{{ sdelkiitem_data.price }} ₽</h2>
             <p>
               Количество <br />
               Стоимость за штуку

@@ -4,47 +4,47 @@
       "image": "image.png",
       "name": "Аукцион",
       "price": 33000,
-      "article": "T1",
+      "article": "Пиломатериалы брус доска",
       "available": true,
       "category": "Аукцион"
     },
     {
       "image": "image.png",
-      "name": "T-shirt 2",
+      "name": "Разовое предложение",
       "price": 33000,
-      "article": "T2",
-      "available": true,
-      "category": "Прямые продажи"
-    },
-    {
-      "image": "image.png",
-      "name": "T-shirt 3",
-      "price": 33000,
-      "article": "T3",
-      "available": false,
-      "category": "Аукцион"
-    },
-    {
-      "image": "image.png",
-      "name": "T-shirt 4",
-      "price": 33000,
-      "article": "T4",
+      "article": "Пиломатериалы брус доска",
       "available": true,
       "category": "Прямые продажи"
     },
     {
       "image": "image.png",
-      "name": "T-shirt 5",
+      "name": "Аукцион",
       "price": 33000,
-      "article": "T5",
+      "article": "Пиломатериалы брус доска",
       "available": false,
       "category": "Аукцион"
     },
     {
       "image": "image.png",
-      "name": "T-shirt 6",
+      "name": "Разовое предложение",
       "price": 33000,
-      "article": "T6",
+      "article": "Пиломатериалы брус доска",
+      "available": true,
+      "category": "Прямые продажи"
+    },
+    {
+      "image": "image.png",
+      "name": "Аукцион",
+      "price": 33000,
+      "article": "Пиломатериалы брус доска",
+      "available": false,
+      "category": "Аукцион"
+    },
+    {
+      "image": "image.png",
+      "name": "Разовое предложение",
+      "price": 33000,
+      "article": "Пиломатериалы брус доска",
       "available": true,
       "category": "Прямые продажи"
     }

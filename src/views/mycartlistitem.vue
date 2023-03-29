@@ -1,11 +1,12 @@
 <template>
   <div class="stock">
     <div class="DataImage">
-      {{ mycartlititem_data.article }}
       <img src="@/assets/image.png" alt="" />
       <div class="data">
-        <p style="color: #969dc3">Акционы</p>
-        <div class="brus">Пиломатериалы брус доска</div>
+        <p style="color: #969dc3">{{ mycartlititem_data.name }}</p>
+        <div class="brus">
+          {{ mycartlititem_data.article }}
+        </div>
         <div class="geo">
           <img src="@/assets/Geo.png" alt="" />
         </div>
@@ -21,8 +22,7 @@
     </div>
     <div class="sello">
       <div class="price">
-        {{ mycartlititem_data.name }}
-        <h2>33 000 ₽{{ mycartlititem_data.price }}</h2>
+        <h2>{{ mycartlititem_data.price }} ₽</h2>
         <p>
           Количество <br />
           Стоимость за штуку

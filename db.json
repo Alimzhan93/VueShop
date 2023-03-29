@@ -2,45 +2,51 @@
   "products": [
     {
       "image": "image.png",
-      "name": "T-shirt 1",
+      "name": "Аукцион",
       "price": 33000,
       "article": "T1",
-      "available": true
+      "available": true,
+      "category": "Аукцион"
     },
     {
       "image": "image.png",
       "name": "T-shirt 2",
       "price": 33000,
       "article": "T2",
-      "available": true
+      "available": true,
+      "category": "Прямые продажи"
     },
     {
       "image": "image.png",
       "name": "T-shirt 3",
       "price": 33000,
       "article": "T3",
-      "available": false
+      "available": false,
+      "category": "Аукцион"
     },
     {
       "image": "image.png",
       "name": "T-shirt 4",
       "price": 33000,
       "article": "T4",
-      "available": true
+      "available": true,
+      "category": "Прямые продажи"
     },
     {
       "image": "image.png",
       "name": "T-shirt 5",
       "price": 33000,
       "article": "T5",
-      "available": false
+      "available": false,
+      "category": "Аукцион"
     },
     {
       "image": "image.png",
       "name": "T-shirt 6",
       "price": 33000,
       "article": "T6",
-      "available": true
+      "available": true,
+      "category": "Прямые продажи"
     }
   ],
   "comments": [

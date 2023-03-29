@@ -1,9 +1,14 @@
 <template>
   <div class="hello">
+    <Post
+      :options="categories"
+      :selected="selected"
+      @select="sortByCategories"
+    />
     <h1>Склад</h1>
   </div>
   <ProductsItem
-    v-for="product in PRODUCTS"
+    v-for="product in filtereProduscts"
     :key="product.article"
     v-bind:product_data="product"
     @addToSdelki="addToSdelki"
@@ -13,12 +18,13 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import Post from "@/components/Post.vue";
 import { mapActions, mapGetters } from "vuex";
 import ProductsItem from "@/components/ProductsItem.vue";
 export default defineComponent({
   name: "Products",
   emits: ["addToSdelki"],
-  components: { ProductsItem },
+  components: { ProductsItem, Post },
   props: {
     sdelki_data: {
       type: Array,
@@ -35,53 +41,30 @@ export default defineComponent({
   },
   data() {
     return {
-      // products: [
-      //   {
-      //     image: "image.png",
-      //     name: "T-shirt 1",
-      //     price: 33000,
-      //     article: "T1",
-      //     available: true,
-      //   },
-      //   {
-      //     image: "image.png",
-      //     name: "T-shirt 2",
-      //     price: 33000,
-      //     article: "T2",
-      //     available: true,
-      //   },
-      //   {
-      //     image: "image.png",
-      //     name: "T-shirt 3",
-      //     price: 33000,
-      //     article: "T3",
-      //     available: false,
-      //   },
-      //   {
-      //     image: "image.png",
-      //     name: "T-shirt 4",
-      //     price: 33000,
-      //     article: "T4",
-      //     available: true,
-      //   },
-      //   {
-      //     image: "image.png",
-      //     name: "T-shirt 5",
-      //     price: 33000,
-      //     article: "T5",
-      //     available: false,
-      //   },
-      //   {
-      //     image: "image.png",
-      //     name: "T-shirt 6",
-      //     price: 33000,
-      //     article: "T6",
-      //     available: true,
-      //   },
-      // ],
+      categories: [
+        { name: "Все типы", value: 1 },
+        { name: "Прямые продажи", value: 2 },
+        { name: "Аукцион", value: 3 },
+      ],
+      selected: "",
+      sorteProducts: [],
     };
   },
   methods: {
+    sortByCategories(category: any) {
+      newFunction.call(this);
+
+      function newFunction(this: any) {
+        this.sorteProducts = [];
+        let vm = this;
+
+        this.PRODUCTS.map(function (item: { category: any }) {
+          if (item.category === category.name) {
+            vm.sorteProducts.push(item);
+          }
+        });
+      }
+    },
     ...mapActions([
       "GET_PRODUCTS_FROM_API",
       "ADD_TO_SDELKI",
@@ -103,6 +86,13 @@ export default defineComponent({
   },
   computed: {
     ...mapGetters(["PRODUCTS"]),
+    filtereProduscts() {
+      if (this.sorteProducts.length) {
+        return this.sorteProducts;
+      } else {
+        return this.PRODUCTS;
+      }
+    },
   },
 });
 </script>
@@ -111,7 +101,7 @@ export default defineComponent({
 <style>
 .hello {
   width: 1200px;
-  height: 75px;
+  height: 130px;
   margin: 0 auto;
   left: 360px;
   top: 0px;

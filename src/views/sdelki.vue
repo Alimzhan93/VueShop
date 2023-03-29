@@ -1,9 +1,14 @@
 <template>
   <div class="home">
+    <Post
+      :options="categories"
+      :selected="selected"
+      @select="sortByCategories"
+    />
     <h1>Сделки</h1>
   </div>
   <sdelkiitem
-    v-for="item in sdelki_data"
+    v-for="item in filtereProduscts"
     :key="item.article"
     :sdelkiitem_data="item"
   />
@@ -11,11 +16,12 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import sdelkiitem from "@/views/sdelkiitem.vue";
+import Post from "@/components/Post.vue";
 interface sdelki_data {
   article: string;
 }
 export default defineComponent({
-  components: { sdelkiitem },
+  components: { sdelkiitem, Post },
   name: "sdelki",
   props: {
     sdelki_data: {
@@ -23,14 +29,48 @@ export default defineComponent({
       required: true,
     },
   },
-  methods: {},
-  computed: {},
+  data() {
+    return {
+      categories: [
+        { name: "Все типы", value: 1 },
+        { name: "Прямые продажи", value: 2 },
+        { name: "Аукцион", value: 3 },
+      ],
+      selected: "",
+      sorteProducts: [],
+    };
+  },
+  methods: {
+    sortByCategories(category: any) {
+      newFunction.call(this);
+
+      function newFunction(this: any) {
+        this.sorteProducts = [];
+        let vm = this;
+
+        this.sdelki_data.map(function (item: { category: any }) {
+          if (item.category === category.name) {
+            vm.sorteProducts.push(item);
+          }
+        });
+      }
+    },
+  },
+  computed: {
+    filtereProduscts() {
+      if (this.sorteProducts.length) {
+        return this.sorteProducts;
+      } else {
+        return this.sdelki_data;
+      }
+    },
+  },
 });
 </script>
 <style>
 .home {
   width: 1200px;
-  height: 75px;
+  height: 130px;
   margin: 0 auto;
   left: 360px;
   top: 0px;

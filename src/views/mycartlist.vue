@@ -3,13 +3,16 @@
     <h1>Избраное</h1>
   </div>
   <mycartlistitem
-    v-for="item in mycartlist_data"
+    v-for="(item, index) in mycartlist_data"
     :key="item.article"
     :mycartlititem_data="item"
+    @addToSdelki="addToSdelki"
+    @deleteMyCart="deleteMyCart(index)"
   />
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
+import { mapActions } from "vuex";
 import mycartlistitem from "@/views/mycartlistitem.vue";
 interface mycartlist_data {
   article: string;
@@ -23,7 +26,15 @@ export default defineComponent({
       required: true,
     },
   },
-  methods: {},
+  methods: {
+    ...mapActions(["DELETE_FROM_MYCARTLIST", "ADD_TO_SDELKI"]),
+    addToSdelki(data: any) {
+      this.ADD_TO_SDELKI(data);
+    },
+    deleteMyCart(index: any) {
+      this.DELETE_FROM_MYCARTLIST(index);
+    },
+  },
   computed: {},
 });
 </script>

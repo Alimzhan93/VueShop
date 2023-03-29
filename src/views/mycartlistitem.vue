@@ -30,8 +30,10 @@
       </div>
 
       <div class="btn_block">
-        <button class="btn btn-primary" v-on:click="">Добавить в сделки</button>
-        <button class="btn_like_i" v-on:click="">
+        <button class="btn btn-primary" v-on:click="addToSdelki">
+          Добавить в сделки
+        </button>
+        <button class="btn_like_i" v-on:click="deleteMyCart">
           <img src="@/assets/favourite.png" alt="" />
         </button>
       </div>
@@ -54,6 +56,14 @@ export default defineComponent({
   },
   setup() {
     return {};
+  },
+  methods: {
+    addToSdelki(): void {
+      this.$emit("addToSdelki", this.mycartlititem_data);
+    },
+    deleteMyCart() {
+      this.$emit("deleteMyCart");
+    },
   },
 });
 </script>

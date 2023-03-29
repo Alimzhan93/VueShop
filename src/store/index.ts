@@ -32,26 +32,31 @@ export default createStore({
     SET_MYCARTLIST: (state, product: Product) => {
       state.mycartlist.push(product);
     },
+    REMOVE_MYCARTLIST: (state, index) => {
+      state.mycartlist.splice(index, 1);
+    },
   },
   actions: {
-    GET_PRODUCTS_FROM_API({ commit }) {
-      return axios("http://localhost:3000/products", {
-        method: "GET",
-      })
-        .then((products) => {
-          commit("SET_PRODUCTS_TO_STATE", products.data);
-          return products;
-        })
-        .catch((error) => {
-          console.log(error);
-          return error;
+    async GET_PRODUCTS_FROM_API({ commit }) {
+      try {
+        const products = await axios("http://localhost:3000/products", {
+          method: "GET",
         });
+        commit("SET_PRODUCTS_TO_STATE", products.data);
+        return products;
+      } catch (error) {
+        console.log(error);
+        return error;
+      }
     },
     ADD_TO_SDELKI({ commit }, product) {
       commit("SET_SDELKI", product);
     },
     ADD_TO_MYCARTLIST({ commit }, product) {
       commit("SET_MYCARTLIST", product);
+    },
+    DELETE_FROM_MYCARTLIST({ commit }, index) {
+      commit("REMOVE_MYCARTLIST", index);
     },
   },
   modules: {},

@@ -32,7 +32,13 @@
           </div>
 
           <div class="btn_block">
-            <button class="btn btn_primary_item" @click="">Оплатить</button>
+            <button
+              class="btn btn_primary_item"
+              :style="{ backgroundColor: bgColor }"
+              @click="changeTextAndColor"
+            >
+              {{ buttonText }}
+            </button>
             <button class="btn_like" @click="">
               <img src="@/assets/like.png" alt="like" />
             </button>
@@ -48,6 +54,18 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "sdelkiitem",
+  setup() {
+    return {
+      buttonText: "Оплатить",
+      bgColor: "blue",
+    };
+  },
+  methods: {
+    changeTextAndColor() {
+      this.buttonText = "Оплачено";
+      this.bgColor = "red";
+    },
+  },
   props: {
     sdelkiitem_data: {
       type: Object,
@@ -55,9 +73,6 @@ export default defineComponent({
         return {};
       },
     },
-  },
-  setup() {
-    return {};
   },
 });
 </script>

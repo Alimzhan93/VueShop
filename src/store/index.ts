@@ -7,6 +7,7 @@ interface Product {
 }
 export default createStore({
   state: {
+    searchValue: "",
     products: [],
     sdelki: [] as Product[],
     mycartlist: [] as Product[],
@@ -21,6 +22,9 @@ export default createStore({
     MYCARTLIST(state) {
       return state.mycartlist;
     },
+    SEARCH_VALUE(state) {
+      return state.searchValue;
+    },
   },
   mutations: {
     SET_PRODUCTS_TO_STATE: (state, products) => {
@@ -34,6 +38,9 @@ export default createStore({
     },
     REMOVE_MYCARTLIST: (state, index) => {
       state.mycartlist.splice(index, 1);
+    },
+    SET_SEARCH_VALUE: (state, value) => {
+      state.searchValue = value;
     },
   },
   actions: {
@@ -57,6 +64,9 @@ export default createStore({
     },
     DELETE_FROM_MYCARTLIST({ commit }, index) {
       commit("REMOVE_MYCARTLIST", index);
+    },
+    GET_SEARCH_VALUE({ commit }, value) {
+      commit("SET_SEARCH_VALUE", value);
     },
   },
   modules: {},

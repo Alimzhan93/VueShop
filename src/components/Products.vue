@@ -1,10 +1,13 @@
 <template>
-  <div class="hello">
+  <div class="post">
     <Post
       :options="categories"
       :selected="selected"
       @select="sortByCategories"
     />
+    <Input />
+  </div>
+  <div class="hello">
     <h1>Склад</h1>
   </div>
   <ProductsItem
@@ -17,14 +20,18 @@
 </template>
 
 <script lang="ts">
+import Input from "@/components/Input.vue";
 import { defineComponent } from "vue";
 import Post from "@/components/Post.vue";
 import { mapActions, mapGetters } from "vuex";
 import ProductsItem from "@/components/ProductsItem.vue";
+interface Product {
+  name: string;
+}
 export default defineComponent({
   name: "Products",
   emits: ["addToSdelki"],
-  components: { ProductsItem, Post },
+  components: { ProductsItem, Post, Input },
   props: {
     sdelki_data: {
       type: Array,
@@ -47,7 +54,7 @@ export default defineComponent({
         { name: "Аукцион", value: 3 },
       ],
       selected: "",
-      sorteProducts: [],
+      sorteProducts: [] as Product[],
     };
   },
   methods: {
@@ -76,16 +83,34 @@ export default defineComponent({
     addToMycartlist(data: any) {
       this.ADD_TO_MYCARTLIST(data);
     },
+    sorteProductsBySearchValue(value: any) {
+      this.sorteProducts = [...this.PRODUCTS];
+      if (value) {
+        this.sorteProducts = this.sorteProducts.filter(function (item: {
+          name: string;
+        }) {
+          return item.name.toLowerCase().includes(value.toLowerCase());
+        });
+      } else {
+        this.sorteProducts = this.PRODUCTS;
+      }
+    },
+  },
+  watch: {
+    SEARCH_VALUE() {
+      this.sorteProductsBySearchValue(this.SEARCH_VALUE);
+    },
   },
   mounted() {
     this.GET_PRODUCTS_FROM_API().then((response) => {
       if (response.data) {
         console.log("Data arrived!");
+        this.sorteProductsBySearchValue(this.SEARCH_VALUE);
       }
     });
   },
   computed: {
-    ...mapGetters(["PRODUCTS"]),
+    ...mapGetters(["PRODUCTS", "SEARCH_VALUE"]),
     filtereProduscts() {
       if (this.sorteProducts.length) {
         return this.sorteProducts;
@@ -105,5 +130,17 @@ export default defineComponent({
   margin: 0 auto;
   left: 360px;
   top: 0px;
+}
+.post {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  margin: 0 auto;
+  gap: 12px;
+  width: 1200px;
+  height: 48px;
+  left: 344px;
+  top: 187px;
 }
 </style>

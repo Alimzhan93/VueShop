@@ -1,23 +1,16 @@
 <template>
-  <div class="post">
-    <div class="item">
-      <div class="frame">
-        <div class="HorizontalMenu">
-          <a
-            v-for="option in options"
-            :key="option.value"
-            @click="selectOptions(option)"
-          >
-            {{ option.name }}
-          </a>
-        </div>
+  <div class="item">
+    <div class="frame">
+      <div class="HorizontalMenu">
+        <a
+          v-for="option in options"
+          :key="option.value"
+          @click="selectOptions(option)"
+        >
+          {{ option.name }}
+        </a>
       </div>
     </div>
-
-    <input class="input" type="text" />
-    <button class="btn">
-      <img src="@/assets/search.png" alt="search" />
-    </button>
   </div>
 </template>
 
@@ -138,54 +131,6 @@ a {
 
   flex: none;
   order: 0;
-  flex-grow: 0;
-}
-.input {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 20px 4px 20px 20px;
-  gap: 8px;
-
-  width: 274px;
-  height: 5px;
-
-  /* white */
-
-  background: #ffffff;
-  /* platinum */
-
-  border: 1px solid #e0e3ee;
-  border-radius: 10px;
-
-  /* Inside auto layout */
-
-  flex: none;
-  order: 1;
-  flex-grow: 0;
-}
-.btn {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  gap: 8px;
-
-  width: 40px;
-  height: 40px;
-
-  /* blue-dark
-
-main
-*/
-  background: #2d3b87;
-  border-radius: 10px;
-
-  /* Inside auto layout */
-
-  flex: none;
-  order: 1;
   flex-grow: 0;
 }
 </style>

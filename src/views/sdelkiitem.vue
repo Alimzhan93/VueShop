@@ -32,12 +32,12 @@
           <div class="btn_block">
             <button
               class="btn btn_primary_item"
-              :style="{ backgroundColor: bgColor }"
-              @click="changeTextAndColor"
+              :style="{ backgroundColor: buttonColor }"
+              @click="changeButton"
             >
               {{ buttonText }}
             </button>
-            <button class="btn_like" @click="">
+            <button class="btn_like" @click="addToMycartlist">
               <img src="@/assets/like.png" alt="like" />
             </button>
           </div>
@@ -49,19 +49,28 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-
+import { ref } from "@vue/reactivity";
 export default defineComponent({
   name: "sdelkiitem",
+
   setup() {
+    const buttonColor = ref("#69C57F");
+    const buttonText = ref("Оплатить");
+
+    function changeButton() {
+      buttonColor.value = "#E0E3EE";
+      buttonText.value = "Оплочено";
+    }
+
     return {
-      buttonText: "Оплатить",
-      bgColor: "blue",
+      buttonColor,
+      buttonText,
+      changeButton,
     };
   },
   methods: {
-    changeTextAndColor() {
-      this.buttonText = "Оплачено";
-      this.bgColor = "red";
+    addToMycartlist(): void {
+      this.$emit("addToMycartlist", this.sdelkiitem_data);
     },
   },
   props: {

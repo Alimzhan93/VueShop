@@ -14,6 +14,7 @@
     v-for="item in filtereProduscts"
     :key="item.article"
     :sdelkiitem_data="item"
+    @addToMycartlist="addToMycartlist"
   />
 </template>
 <script lang="ts">
@@ -21,7 +22,11 @@ import Input from "@/components/Input.vue";
 import { defineComponent } from "vue";
 import sdelkiitem from "@/views/sdelkiitem.vue";
 import Post from "@/components/Post.vue";
+import { mapActions } from "vuex";
 interface sdelki_data {
+  article: string;
+}
+interface mycartlist_data {
   article: string;
 }
 export default defineComponent({
@@ -30,6 +35,10 @@ export default defineComponent({
   props: {
     sdelki_data: {
       type: Array as () => Array<sdelki_data>,
+      required: true,
+    },
+    mycartlist_data: {
+      type: Array as () => Array<mycartlist_data>,
       required: true,
     },
   },
@@ -59,6 +68,10 @@ export default defineComponent({
         });
       }
     },
+    ...mapActions(["ADD_TO_MYCARTLIST"]),
+    addToMycartlist(data: any) {
+      this.ADD_TO_MYCARTLIST(data);
+    },
   },
   computed: {
     filtereProduscts() {
@@ -74,7 +87,7 @@ export default defineComponent({
 <style>
 .home {
   width: 1200px;
-  height: 130px;
+  height: 50px;
   margin: 0 auto;
   left: 360px;
   top: 0px;

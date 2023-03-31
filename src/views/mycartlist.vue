@@ -84,7 +84,7 @@ export default defineComponent({
 <style>
 .favorites {
   width: 1200px;
-  height: 130px;
+  height: 50px;
   margin: 0 auto;
   left: 360px;
   top: 0px;

@@ -1,10 +1,13 @@
 <template>
-  <div class="favorites">
+  <div class="post">
     <Post
       :options="categories"
       :selected="selected"
       @select="sortByCategories"
     />
+    <Input />
+  </div>
+  <div class="favorites">
     <h1>Избраное</h1>
   </div>
   <mycartlistitem
@@ -16,6 +19,7 @@
   />
 </template>
 <script lang="ts">
+import Input from "@/components/Input.vue";
 import { defineComponent } from "vue";
 import Post from "@/components/Post.vue";
 import { mapActions } from "vuex";
@@ -24,7 +28,7 @@ interface mycartlist_data {
   article: string;
 }
 export default defineComponent({
-  components: { mycartlistitem, Post },
+  components: { mycartlistitem, Post, Input },
   name: "mycartlist",
   props: {
     mycartlist_data: {

@@ -1,15 +1,16 @@
 <template>
   <div class="header">
-    <div class="top"></div>
-    <router-link class="sklad" to="/"
-      ><img src="@/assets/sklad.png" alt="" /> Склад</router-link
-    >
-    <router-link class="sdelki" to="/sdelki"
-      ><img src="@/assets/sdelki.png" alt="" />Сделки</router-link
-    >
-    <router-link class="dials" to="/mycartlist"
-      ><img src="@/assets/vector.png" alt="" />Избраное
-    </router-link>
+    <div class="top">
+      <router-link class="sklad" to="/"
+        ><img src="@/assets/sklad.png" alt="" /> Склад</router-link
+      >
+      <router-link class="sdelki" to="/sdelki"
+        ><img src="@/assets/sdelki.png" alt="" />Сделки</router-link
+      >
+      <router-link class="dials" to="/mycartlist"
+        ><img src="@/assets/vector.png" alt="" />Избраное
+      </router-link>
+    </div>
   </div>
 
   <router-view :sdelki_data="SDELKI" :mycartlist_data="MYCARTLIST" />
@@ -41,6 +42,9 @@ export default defineComponent({
 
   background: #ffffff;
 }
+.top :hover {
+  background-color: #f4f5f9;
+}
 .top {
   width: 1200px;
   height: 40px;
@@ -50,9 +54,6 @@ export default defineComponent({
 
   background: #e0e3ee;
   border-radius: 0px 0px 10px 10px;
-}
-.header :hover {
-  background-color: #f4f5f9;
 }
 .dials {
   display: flex;

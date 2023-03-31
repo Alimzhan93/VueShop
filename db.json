@@ -12,7 +12,7 @@
       "image": "image.png",
       "name": "Разовое предложение",
       "price": 33000,
-      "article": "Пиломатериалы брус доска",
+      "article": "Профилированный брус",
       "available": true,
       "category": "Прямые продажи"
     },
@@ -20,7 +20,7 @@
       "image": "image.png",
       "name": "Аукцион",
       "price": 33000,
-      "article": "Пиломатериалы брус доска",
+      "article": "Строганный брус",
       "available": false,
       "category": "Аукцион"
     },
@@ -28,7 +28,7 @@
       "image": "image.png",
       "name": "Разовое предложение",
       "price": 33000,
-      "article": "Пиломатериалы брус доска",
+      "article": "Профилированный брус",
       "available": true,
       "category": "Прямые продажи"
     },
@@ -36,7 +36,7 @@
       "image": "image.png",
       "name": "Аукцион",
       "price": 33000,
-      "article": "Пиломатериалы брус доска",
+      "article": "Обрезной брус",
       "available": false,
       "category": "Аукцион"
     },
@@ -44,7 +44,7 @@
       "image": "image.png",
       "name": "Разовое предложение",
       "price": 33000,
-      "article": "Пиломатериалы брус доска",
+      "article": "Клееный профбрус",
       "available": true,
       "category": "Прямые продажи"
     }

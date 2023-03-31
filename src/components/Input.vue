@@ -1,5 +1,10 @@
 <template>
-  <input class="input" type="text" v-model="searchValue" />
+  <input
+    class="input"
+    type="text"
+    v-model="searchValue"
+    @keydown.enter="search(searchValue)"
+  />
   <button class="btn" @click="search(searchValue)">
     <img alt="search" src="@/assets/search.png" />
   </button>
@@ -34,7 +39,7 @@ export default defineComponent({
   align-items: center;
   padding: 20px 4px 20px 20px;
   gap: 8px;
-
+  font-size: 25px;
   width: 274px;
   height: 5px;
 

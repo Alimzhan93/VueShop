@@ -1,10 +1,13 @@
 <template>
-  <div class="home">
+  <div class="post">
     <Post
       :options="categories"
       :selected="selected"
       @select="sortByCategories"
     />
+    <Input />
+  </div>
+  <div class="home">
     <h1>Сделки</h1>
   </div>
   <sdelkiitem
@@ -14,6 +17,7 @@
   />
 </template>
 <script lang="ts">
+import Input from "@/components/Input.vue";
 import { defineComponent } from "vue";
 import sdelkiitem from "@/views/sdelkiitem.vue";
 import Post from "@/components/Post.vue";
@@ -21,7 +25,7 @@ interface sdelki_data {
   article: string;
 }
 export default defineComponent({
-  components: { sdelkiitem, Post },
+  components: { sdelkiitem, Post, Input },
   name: "sdelki",
   props: {
     sdelki_data: {

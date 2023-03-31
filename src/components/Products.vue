@@ -83,13 +83,18 @@ export default defineComponent({
     addToMycartlist(data: any) {
       this.ADD_TO_MYCARTLIST(data);
     },
-    sorteProductsBySearchValue(value: any) {
+    sorteProductsBySearchValue(value: any): void {
       this.sorteProducts = [...this.PRODUCTS];
       if (value) {
         this.sorteProducts = this.sorteProducts.filter(function (item: {
           name: string;
+          article?: string;
         }) {
-          return item.name.toLowerCase().includes(value.toLowerCase());
+          return (
+            item.name.toLowerCase().includes(value.toLowerCase()) ||
+            (item.article &&
+              item.article.toLowerCase().includes(value.toLowerCase()))
+          );
         });
       } else {
         this.sorteProducts = this.PRODUCTS;
